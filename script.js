@@ -1076,3 +1076,4 @@ window.addEventListener('scroll', () => {
         document.body.classList.remove('scrolled-down');
     }
 });
+
