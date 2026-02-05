@@ -902,6 +902,8 @@
                 let layers = [];
                 let pulses = [];
                 const heroMouse = { x: -9999, y: -9999 };
+                
+                // MOUSE EVENTS (DESKTOP)
                 heroCanvas.addEventListener('mousemove', e => {
                     const rect = heroCanvas.getBoundingClientRect();
                     heroMouse.x = e.clientX - rect.left;
@@ -911,6 +913,28 @@
                     heroMouse.x = -9999;
                     heroMouse.y = -9999;
                 });
+
+                // TOUCH EVENTS (MOBILE)
+                // Passive listeners allow scrolling to continue while interacting
+                heroCanvas.addEventListener('touchstart', e => {
+                    const rect = heroCanvas.getBoundingClientRect();
+                    const touch = e.touches[0];
+                    heroMouse.x = touch.clientX - rect.left;
+                    heroMouse.y = touch.clientY - rect.top;
+                }, { passive: true });
+
+                heroCanvas.addEventListener('touchmove', e => {
+                    const rect = heroCanvas.getBoundingClientRect();
+                    const touch = e.touches[0];
+                    heroMouse.x = touch.clientX - rect.left;
+                    heroMouse.y = touch.clientY - rect.top;
+                }, { passive: true });
+
+                heroCanvas.addEventListener('touchend', () => {
+                    heroMouse.x = -9999;
+                    heroMouse.y = -9999;
+                });
+
                 function resizeHero() {
                     const parent = heroCanvas.parentElement;
                     hWidth = parent.clientWidth;
@@ -934,11 +958,6 @@
                         this.idleAngle = Math.random() * Math.PI * 2;
                     }
                     update() {
-                        // Removed wobble effect:
-                        // this.idleAngle += 0.05;
-                        // this.x = this.baseX + Math.cos(this.idleAngle) * 5;
-                        // this.y = this.baseY + Math.sin(this.idleAngle) * 5;
-                        
                         // Keep nodes still at base position:
                         this.x = this.baseX;
                         this.y = this.baseY;
