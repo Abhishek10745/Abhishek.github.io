@@ -1,4 +1,237 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+    scroll-behavior:smooth;
+}
+
 body{
-    font-family: Arial;
+    background:#0b0f1a;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+/* Animated Gradient Background */
+.bg-animation{
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:linear-gradient(270deg,#0f172a,#020617,#111827);
+    background-size:600% 600%;
+    animation:gradientMove 15s ease infinite;
+    z-index:-1;
+}
+
+@keyframes gradientMove{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+/* Navbar */
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 10%;
+    backdrop-filter:blur(12px);
+    background:rgba(255,255,255,0.05);
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:700;
+    color:#38bdf8;
+}
+
+.nav-links{
+    list-style:none;
+    display:flex;
+    gap:30px;
+}
+
+.nav-links a{
+    color:white;
+    text-decoration:none;
+    font-weight:500;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:#38bdf8;
+}
+
+/* Hero Section */
+.hero{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:150px 10% 100px;
+    min-height:100vh;
+}
+
+.hero-content h1{
+    font-size:52px;
+    font-weight:700;
+}
+
+.hero-content span{
+    color:#38bdf8;
+}
+
+.hero-content h2{
+    margin:10px 0;
+    font-size:28px;
+    color:#94a3b8;
+}
+
+.hero-content p{
+    margin:20px 0;
+    max-width:500px;
+}
+
+.btn{
+    padding:12px 28px;
+    border-radius:30px;
+    text-decoration:none;
+    margin-right:15px;
+    transition:.3s;
+}
+
+.primary{
+    background:#38bdf8;
+    color:#000;
+}
+
+.primary:hover{
+    box-shadow:0 0 20px #38bdf8;
+}
+
+.outline{
+    border:1px solid #38bdf8;
+    color:#38bdf8;
+}
+
+.outline:hover{
+    background:#38bdf8;
+    color:black;
+}
+
+/* AI Orb */
+.ai-orb{
+    width:280px;
+    height:280px;
+    border-radius:50%;
+    background:radial-gradient(circle,#38bdf8,#1e3a8a);
+    box-shadow:0 0 60px #38bdf8;
+    animation:float 6s ease-in-out infinite;
+}
+
+@keyframes float{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-20px)}
+}
+
+/* Sections */
+.section{
+    padding:100px 10%;
     text-align:center;
+}
+
+.section-title{
+    font-size:36px;
+    margin-bottom:40px;
+    color:#38bdf8;
+}
+
+.section-text{
+    max-width:800px;
+    margin:auto;
+}
+
+/* Glass effect */
+.glass{
+    backdrop-filter:blur(12px);
+    background:rgba(255,255,255,0.04);
+}
+
+/* Skills */
+.skills-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:20px;
+}
+
+.skill-card{
+    padding:20px;
+    border-radius:15px;
+    background:rgba(255,255,255,0.05);
+    transition:.3s;
+}
+
+.skill-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 0 20px rgba(56,189,248,.5);
+}
+
+/* Projects */
+.projects-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+.project-card{
+    padding:25px;
+    border-radius:15px;
+    background:rgba(255,255,255,0.05);
+    transition:.3s;
+}
+
+.project-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 0 30px rgba(56,189,248,.4);
+}
+
+/* Contact */
+.contact-grid{
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    flex-wrap:wrap;
+}
+
+.contact-card{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:25px 35px;
+    border-radius:15px;
+    text-decoration:none;
+    color:white;
+    background:rgba(255,255,255,0.05);
+    transition:.3s;
+}
+
+.contact-card i{
+    font-size:28px;
+    margin-bottom:10px;
+}
+
+.contact-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 0 20px rgba(56,189,248,.5);
+}
+
+/* Footer */
+footer{
+    text-align:center;
+    padding:30px;
+    background:rgba(255,255,255,0.05);
+    margin-top:40px;
 }
